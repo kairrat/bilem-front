@@ -35,7 +35,7 @@ const Courses = () => {
         </div>
   
         <div className="grid grid-cols-3 gap-4 rounded-3xl">
-        <div className="bg-gray-100 p-4 rounded-3xl">
+        <div className="p-4   ">
         <Card     image={corses}
         title="Полное руководство по Python 3!"
         subtitle="Udemy"
@@ -45,7 +45,7 @@ const Courses = () => {
         rating="4.4"/>
           </div>
   
-          <div className="bg-gray-100 p-4 shadow-md rounded-3xl">
+          <div className=" p-4 ">
          <Card     image={corses}
         title="Figma for everyone!"
         subtitle="Figma.com"
@@ -55,7 +55,7 @@ const Courses = () => {
         rating="4.7"/>
           </div>
   
-          <div className="bg-gray-100 p-4 shadow-md rounded-3xl">
+          <div className=" p-4 ">
           <Card     image={corses}
         title=" Продвинутый  Английский"
         subtitle="English Zone "
@@ -65,7 +65,7 @@ const Courses = () => {
         rating="4.9"/>
              </div>
   
-          <div className="bg-gray-100 p-4 shadow-md rounded-3xl">
+          <div className=" p-4 ">
           <Card     image={corses}
         title="Тайм-менеджмент"
         subtitle="Брайн Трейси"
@@ -76,7 +76,7 @@ const Courses = () => {
              </div>
              
   
-          <div className="bg-gray-100 p-4 shadow-md rounded-3xl">
+          <div className=" p-4 ">
           <Card     image={corses}
         title="UX-UI Design"
         subtitle="Ogogo Academy"
@@ -86,7 +86,7 @@ const Courses = () => {
         rating="4"/>
              </div>
   
-          <div className="bg-gray-100 p-4 shadow-md rounded-3xl">
+          <div className=" p-4 ">
           <Card     image={corses}
         title="Frontend-разработчик"
         subtitle="Udemy"

@@ -8,12 +8,17 @@ import Login from './pages/Login';
 import Reset from './pages/Reset';
 import ResetCode from './pages/ResetCode';
 import ResetPassword from './pages/ResetPassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const NotFound = () => (<>Page not found</>);
 
 
 function App() {
   return (
+    <div>
+
     <Routes>
               <Route path='/' element={<Home/>} />
               <Route path='/register' element={<Register/>} />
@@ -33,6 +38,10 @@ function App() {
 
 
     </Routes>
+    <ToastContainer/>
+
+    </div>
+
 
   );
 }

@@ -14,7 +14,7 @@ const CustomInput = ({ type, field, form: { touched, errors},  label, ...props }
 <>
 
       <label htmlFor={field.name}>{label}</label>
-      <input id={field.name} {...field} {...props}  class="placeholder: text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl	 py-2 px-4 block w-full appearance-none" type={showPassword ? 'text' : type} {...props} />
+      <input id={field.name} {...field} {...props}  className="placeholder: text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded-xl	 py-2 px-4 block w-full appearance-none" type={showPassword ? 'text' : type} {...props} />
       {type === 'password' && (
         <img
           onClick={handleTogglePassword}

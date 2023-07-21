@@ -27,21 +27,21 @@ const Reset = () => {
       };
   return (
     <div>
-        <div class="py-6">
-  <div class="flex bg-white rounded-lg  overflow-hidden mx-auto max-w-full lg:max-w-6xl h-screen">
+        <div className="py-6">
+  <div className="flex bg-white rounded-lg  overflow-hidden mx-auto max-w-full lg:max-w-6xl h-screen">
   <div className="flex justify-center items-center lg:w-1/2 bg-cover" style={{backgroundImage: `url(${logo})`}}></div>
 
     <Formik    initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={handleSubmit}>
-        <div class="w-full p-8 lg:w-1/2 mt-40">
-            <h2 class="text-4xl font-bold text-black text-center w-6/12 mx-auto  ">{t('reset_password')}</h2>
+        <div className="w-full p-8 lg:w-1/2 mt-40">
+            <h2 className="text-4xl font-bold text-black text-center w-6/12 mx-auto  ">{t('reset_password')}</h2>
             <p className='text-xs font-semibold text-gray-500 text-center w-6/12 mt-5 mx-auto'>{t('send_email')}</p>
             
             
             <Form className='mt-4'>
 
-            <div class="mt-4">
+            <div className="mt-4">
             <Field
                     type="email"
                     id="email"
@@ -54,17 +54,17 @@ const Reset = () => {
             </Form>
 
          
-            <div class="mt-8">
+            <div className="mt-8">
                 <Link to='/reset/resetCode'>
                 <Button  className='font-bold py-2 px-4 w-full rounded-xl' text={t('recover_password')} />
 
                 </Link>
             </div>
 
-            <div class="mt-4 flex items-center justify-between">
-                <span class="border-b w-1/3 md:w-1/3"></span>
-                <span class="text-xs text-gray-500 uppercase">{t('or')}</span>
-                <span class="border-b w-1/3 md:w-1/3"></span>
+            <div className="mt-4 flex items-center justify-between">
+                <span className="border-b w-1/3 md:w-1/3"></span>
+                <span className="text-xs text-gray-500 uppercase">{t('or')}</span>
+                <span className="border-b w-1/3 md:w-1/3"></span>
 
             </div>
 

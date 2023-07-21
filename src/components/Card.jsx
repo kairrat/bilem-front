@@ -5,7 +5,7 @@ import star from '../assets/icons/star.svg'
 
 const Card = ({ image, title, subtitle, price, studied,studiedCount, rating }) => {
     return (
-        <div className="bg-gray-100 p-4 rounded-3xl">
+        <div className=" p-4 rounded-3xl">
           <img src={image} alt={title} className="w-full mb-2 rounded-lg" />
           <h3 className="text-lg font-bold mb-1">{title}</h3>
           <p className="text-gray-700 mb-2">{subtitle}</p>

@@ -1,5 +1,6 @@
 import Banner from "../components/Banner";
 import Courses from "../components/Courses";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MainSection from "../components/Main";
 import SearchBar from "../components/SearchBar";
@@ -14,6 +15,7 @@ function Home() {
   <SearchBar/>
   <MainSection/>
   <Courses/>
+  <Footer/>
   </div>
   );
 }
