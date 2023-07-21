@@ -1,15 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Button from '../components/Button'
 import CustomInput from '../components/Input'
 import { useTranslation } from 'react-i18next'
 import logo from '../assets/images/left_logo.png'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { useDispatch } from 'react-redux'
+import { resetPasswordAsync } from '../api/auth'
+import { toast } from 'react-toastify'
 
 
 const ResetPassword = () => {
     const { t } = useTranslation()
+    let dispatch = useDispatch();
+    let navigate = useNavigate();
+    let {email} = useParams();
     const initialValues = {
         password: '',
         confirmPassword: '',
@@ -23,8 +29,25 @@ const ResetPassword = () => {
           .required(t('field_required')),
       });
     
-      const handleSubmit = (values) => {
-        console.log(values);
+      const handleSubmit = (data) => {
+        dispatch(resetPasswordAsync(data)).then((res) => {
+          if(res.meta.requestStatus === "fulfilled") {   
+            toast.success(t('password_succ'), {
+              autoClose: 2000, 
+              onClose: () => {
+              }        });       
+            navigate('/')
+          }
+          else{
+            toast.error(t('err'), {
+              autoClose: 2000, 
+              onClose: () => {
+              }        });      
+            
+          }
+        })
+       
+
       };
 
     return (

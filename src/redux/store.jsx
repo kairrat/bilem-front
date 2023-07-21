@@ -1,17 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 import generalSlice from "./slices/GeneralSlice";
-import RegisterSlice from "./slices/RegisterSlice";
+import registerReducer from "./slices/RegisterSlice";
 import loginReducer from './slices/LoginSlice';
+import activateReducer from "./slices/activateSlice";
+import resetReducer from "./slices/resetSlice";
+import resetCodeReducer from "./slices/resetCodeSlice";
+import resetPasswordReducer from "./slices/resetPasswordSlice";
+
+
+
 
 export const store = configureStore({
     reducer: {
         [generalSlice.name]: generalSlice.reducer,
-        register : RegisterSlice,
+        register : registerReducer,
         login: loginReducer,
-
-
-
-
+        activate : activateReducer,
+        reset : resetReducer,
+        resetCode : resetCodeReducer,
+        resetPassword : resetPasswordReducer
 
     }
 });

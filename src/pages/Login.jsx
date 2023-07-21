@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import CustomInput from '../components/Input';
 import Button from '../components/Button';
 import { useDispatch } from 'react-redux';
-import { login } from '../api/login';
+import { login } from '../api/auth';
 import { toast } from 'react-toastify';
 
 const Login = () => {
@@ -92,7 +92,7 @@ const Login = () => {
                   />
                   <ErrorMessage name="password" component="div" className="text-red-500" />
                 </div>
-                {/* <div className="mt-4 justify-between">
+                <div className="mt-4 justify-between">
                   <div className="flex justify-between mt-4">
                     <div>
                       <Field
@@ -108,7 +108,7 @@ const Login = () => {
                       {t('forgot_password')}
                     </Link>
                   </div>
-                </div> */}
+                </div>
 
                 <div className="mt-8">
                   <Button

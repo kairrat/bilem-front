@@ -1,10 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/images/left_logo.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Button from '../components/Button'
+import { useDispatch } from 'react-redux'
+import { resetCodeAsync } from '../api/auth'
+import { toast } from 'react-toastify'
 
 const ResetCode = () => {
+
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
+
+
+
+  const [code, setCode] = useState('');
+
+  const handleInputChange = (event, index) => {
+    const { value } = event.target;
+    if (!isNaN(value)) {
+      const updatedCode = code.slice(0, index) + value + code.slice(index + 1);
+      setCode(updatedCode);
+    }
+  };
+
+
+  const handleSubmit = () => {
+    let data  = {
+      email : localStorage.getItem('email'),
+      code : code,
+    }
+
+    dispatch(resetCodeAsync(data)).then((res) => {
+      if(res.meta.requestStatus === "fulfilled") {
+        navigate(`/reset/resetCode/resetPassword/:${localStorage.getItem('email')}`)
+      }
+      else{
+        toast.error(t('err'), {
+          autoClose: 2000, 
+          onClose: () => {
+          }        });      
+        
+      }
+    })
+
+  }
 
     const { t } = useTranslation()
   return (
@@ -20,46 +60,18 @@ const ResetCode = () => {
      
         
             <div className=" flex mt-4 mx-auto justify-center" >
-            <input
-  className="flex w-12 h-12 justify-center mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
-  style={{
-    boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-  }}
-  type="text"
-/>  
-<input
-  className="flex w-12 h-12 justify-center  mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
-  style={{
-    boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-  }}
-  type="text"
-/>
-<input
-  className="flex w-12 h-12 justify-center  mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
-  style={{
-    boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-  }}
-  type="text"
-/>
-<input
-  className="flex w-12 h-12 justify-center mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
-  style={{
-    boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-  }}
-  type="text"
-/>           <input
-  className="flex w-12 h-12 justify-center mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
-  style={{
-    boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-  }}
-  type="text"
-/>           <input
-  className="flex w-12 h-12 justify-center mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
-  style={{
-    boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-  }}
-  type="text"
-/> 
+            {Array.from({ length: 6 }).map((_, index) => (
+        <input
+          key={index}
+          className="flex w-12 h-12 justify-center mr-2 items-center rounded-lg py-2 px-3.5 text-3xl border border-gray-300 bg-white shadow-sm"
+          style={{
+            boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
+          }}
+          type="text"
+          maxLength="1"
+          onChange={(event) => handleInputChange(event, index)}
+        />
+      ))}
          </div>
 
          <div className='mt-6 flex justify-center'>
@@ -71,10 +83,8 @@ const ResetCode = () => {
      
          
             <div className="mt-8">
-                <Link to={'resetPassword'}> 
-                <Button className=' py-2 px-4 w-full rounded-xl' text={t('confirm')} />
+                <Button onClick={()=> handleSubmit()} type='submit' className=' py-2 px-4 w-full rounded-xl' text={t('confirm')} />
 
-                </Link>
             </div>
             <div className="mt-4 flex items-center justify-between">
                 <span className="border-b w-1/3 md:w-1/3"></span>

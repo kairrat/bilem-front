@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
-import people from '../assets/icons/people.svg'
-import star from '../assets/icons/star.svg'
+
 
 import corses from '../assets/images/course-sample.jpg'
 import { useTranslation } from 'react-i18next';

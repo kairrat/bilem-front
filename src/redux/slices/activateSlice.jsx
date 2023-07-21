@@ -1,29 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser } from "../../api/auth";
+import { activateUser } from "../../api/auth";
 
-const registerSlice = createSlice({
-    name: 'register',
+const activateSlice = createSlice({
+    name: 'activate',
     initialState: {
       loading: false,
       error: null,
       user: null,
+      isLogged : null,
     },
     reducers: {},
     extraReducers: (builder) => {
       builder
-        .addCase(registerUser.pending, (state) => {
+        .addCase(activateUser.pending, (state) => {
           state.loading = true;
           state.error = null;
         })
-        .addCase(registerUser.fulfilled, (state, action) => {
+        .addCase(activateUser.fulfilled, (state, action) => {
           state.loading = false;
+          state.isLogged = true;
           state.user = action.payload;
         })
-        .addCase(registerUser.rejected, (state, action) => {
+        .addCase(activateUser.rejected, (state, action) => {
           state.loading = false;
           state.error = action.payload;
         });
     },
   });
 
-  export default registerSlice.reducer;
+  export default activateSlice.reducer;

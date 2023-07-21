@@ -1,29 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser } from "../../api/auth";
+import { resetPasswordAsync } from "../../api/auth";
 
-const registerSlice = createSlice({
-    name: 'register',
+const resetPasswordSlice = createSlice({
+    name: 'resetPassword',
     initialState: {
       loading: false,
       error: null,
-      user: null,
     },
     reducers: {},
     extraReducers: (builder) => {
       builder
-        .addCase(registerUser.pending, (state) => {
+        .addCase(resetPasswordAsync.pending, (state) => {
           state.loading = true;
           state.error = null;
         })
-        .addCase(registerUser.fulfilled, (state, action) => {
+        .addCase(resetPasswordAsync.fulfilled, (state, action) => {
           state.loading = false;
-          state.user = action.payload;
+          
         })
-        .addCase(registerUser.rejected, (state, action) => {
+        .addCase(resetPasswordAsync.rejected, (state, action) => {
           state.loading = false;
           state.error = action.payload;
         });
     },
   });
 
-  export default registerSlice.reducer;
+  export default resetPasswordSlice.reducer;

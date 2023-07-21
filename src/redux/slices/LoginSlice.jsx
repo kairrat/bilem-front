@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login } from "../../api/login";
+import { login } from "../../api/auth";
 
 const loginSlice = createSlice({
     name: 'login',
@@ -18,6 +18,7 @@ const loginSlice = createSlice({
         .addCase(login.fulfilled, (state, {payload}) => {
           state.loading = false;
           console.log('Login payload: ', payload);
+          localStorage.setItem('user', JSON.stringify(payload.user));
           state.error = null;
           state.user = payload.user;
         })
