@@ -6,8 +6,7 @@ import activateReducer from "./slices/activateSlice";
 import resetReducer from "./slices/resetSlice";
 import resetCodeReducer from "./slices/resetCodeSlice";
 import resetPasswordReducer from "./slices/resetPasswordSlice";
-
-
+import freeCoursesReducer from './slices/getFreeCoursesSlice'
 
 
 export const store = configureStore({
@@ -18,7 +17,8 @@ export const store = configureStore({
         activate : activateReducer,
         reset : resetReducer,
         resetCode : resetCodeReducer,
-        resetPassword : resetPasswordReducer
+        resetPassword : resetPasswordReducer,
+        getFreeCourses : freeCoursesReducer,
 
     }
 });

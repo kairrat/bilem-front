@@ -6,16 +6,16 @@ import star from '../assets/icons/star.svg'
 const Card = ({ image, title, subtitle, price, studied,studiedCount, rating }) => {
     return (
         <div className=" p-4 rounded-3xl">
-          <img src={image} alt={title} className="w-full mb-2 rounded-lg" />
+          <img src={image} alt={title} className="w-[19rem] h-[10rem]   mb-2 rounded-lg" />
           <h3 className="text-lg font-bold mb-1">{title}</h3>
           <p className="text-gray-700 mb-2">{subtitle}</p>
-          <div className='flex items-center justify-between'>
+          <div className='flex items-center justify-between px-4 py-8'>
             <div className="flex items-center text-center">
-              <span className="text-pink-800 mr-1 font-bold">{price} сом</span>
+              <span className="text-pink-800  font-bold">{price} сом</span>
             </div>
             <div className="flex items-center text-center">
               <img src={people} alt="people" className="w-6 h-6" />
-              <span className="text-pink-800 mr-1">{studied}:</span>
+              <span className="text-pink-800 ">{studied}:</span>
               <span className="text-gray-700 font-bold">{studiedCount}</span>
             </div>
             <div className='flex items-center text-center'>
