@@ -7,6 +7,9 @@ body {
   font-family: 'Raleway';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+
   p::first-letter {
     text-transform: uppercase;
   }
@@ -26,3 +29,4 @@ code {
     monospace;
 
 }
+

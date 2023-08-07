@@ -32,7 +32,7 @@ const SearchBar = () => {
             <option>Кыргызский</option> 
           </select>
    
-          <Button text={t('search')} className='font-bold py-2 px-4  mx-8 rounded-2xl'>   </Button>
+          <Button text={t('search')} className='font-bold py-2 px-4 text-white  mx-8 rounded-2xl'>   </Button>
         </div>
       </div>
     </div>

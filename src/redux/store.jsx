@@ -8,6 +8,8 @@ import resetCodeReducer from "./slices/resetCodeSlice";
 import resetPasswordReducer from "./slices/resetPasswordSlice";
 import freeCoursesReducer from './slices/getFreeCoursesSlice'
 import categoryReducer from './slices/CategorySlice'
+import logoutReducer, { setLogout, isLogged } from './slices/logoutSlice';
+import profileReducer from './slices/profileSlice'
 
 
 export const store = configureStore({
@@ -21,6 +23,11 @@ export const store = configureStore({
         resetPassword : resetPasswordReducer,
         getFreeCourses : freeCoursesReducer,
         category : categoryReducer,
+        logout: logoutReducer,
+        profile: profileReducer,
+
+
+
 
 
     }

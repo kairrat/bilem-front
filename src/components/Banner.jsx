@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const Banner = () => {
     const { t } = useTranslation();
     return (
-<div className="flex items-center px-24  justify-between h-16 bg-gradient-to-r from-purple-500 to-green-400 relative">
+<div className="flex items-center px-24 z-0  justify-between h-16 bg-gradient-to-r from-purple-500 to-green-400 relative">
   <div className=" text-white">
     <p>{t('make_your_courses')}</p>
   </div>

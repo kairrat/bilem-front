@@ -9,3 +9,10 @@ export const API = axios.create({
 		'Content-Type': 'application/json',
 	}
 });
+
+API.interceptors.request.use(
+    req => {
+        req.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+        return req;
+    }
+);

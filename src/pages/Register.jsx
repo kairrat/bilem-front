@@ -58,15 +58,16 @@ const Register = () => {
         dispatch(activateUser(data)).then((res) => {
           if(res.meta.requestStatus === "fulfilled"){
             toast.success(t('register_succ'), {
-              autoClose: 1000, 
+              autoClose: 3000, 
               onClose: () => {
+                navigate('/login')
 
               },
             });  
           }
           else {
             toast.error(t('register_err'), {
-              autoClose: 1000, 
+              autoClose: 3000, 
               onClose: () => {
               },
             });
@@ -92,7 +93,7 @@ const Register = () => {
         dispatch(registerUser(data))
         .then((res) => {
           if(res.meta.requestStatus === "fulfilled"){
-            navigate('/');
+            setStep(2)
           }
           else {
             toast.error(t('register_err'), {
@@ -118,7 +119,7 @@ const Register = () => {
       {step === 1 ?   <div>
         <div className="py-6">
   <div className="flex bg-white rounded-lg  overflow-hidden mx-auto max-w-full lg:max-w-6xl">
-  <div className="flex justify-center items-center lg:w-1/2 bg-cover" style={{backgroundImage: `url(${logo})`}}></div>
+  <div className="flex justify-center items-center lg:w-1/2 bg-contain bg-no-repeat lg:bg-inherit" style={{backgroundImage: `url(${logo})`}}></div>
 
 
         <div className="w-full p-8 lg:w-1/2 mt-20">

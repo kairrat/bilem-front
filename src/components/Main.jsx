@@ -35,7 +35,7 @@ const MainSection = () => {
             {t('main_subtitle2')}
           </p>
 
-          <Button className='rounded-xl px-4 py-2 mt-4' text= {t("start_study")}/>
+          <Button className='rounded-xl px-4 py-2 mt-4 text-white' text= {t("start_study")}/>
         </div>
       </div>
     </div>

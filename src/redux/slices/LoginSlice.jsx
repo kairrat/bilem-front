@@ -17,8 +17,11 @@ const loginSlice = createSlice({
         })
         .addCase(login.fulfilled, (state, {payload}) => {
           state.loading = false;
-          console.log('Login payload: ', payload);
+          localStorage.setItem('userID', JSON.stringify(payload.user.id));
           localStorage.setItem('user', JSON.stringify(payload.user));
+
+          localStorage.setItem('token', JSON.stringify(payload.accessToken));
+          localStorage.setItem('refresh', JSON.stringify(payload.refreshToken));
           state.error = null;
           state.user = payload.user;
         })

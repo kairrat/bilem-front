@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Button = ({ text, onClick,className }) => {
-    const buttonClassName = `bg-pink-800 hover:bg-pink-900 text-white ${className}`;
+    const buttonClassName = `bg-pink-800  hover:bg-pink-900  ${className}`;
 
     return (
       <button className={buttonClassName} onClick={onClick}>

@@ -7,6 +7,5 @@ import { API} from "./api";
     const url = '/category/flat' + (params ? `?${new URLSearchParams(params).toString()}` : '');
 
     const response = await API.get(url);
-    console.log(response.data, ' category')
     return response.data;
   });

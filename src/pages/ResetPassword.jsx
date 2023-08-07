@@ -33,7 +33,7 @@ const ResetPassword = () => {
         dispatch(resetPasswordAsync(data)).then((res) => {
           if(res.meta.requestStatus === "fulfilled") {   
             toast.success(t('password_succ'), {
-              autoClose: 2000, 
+              autoClose: 3000, 
               onClose: () => {
               }        });       
             navigate('/')
@@ -54,7 +54,7 @@ const ResetPassword = () => {
         <div>
             <div className="py-6">
       <div className="flex bg-white rounded-lg  overflow-hidden mx-auto max-w-full lg:max-w-6xl h-screen">
-      <div className="flex justify-center items-center lg:w-1/2 bg-cover" style={{backgroundImage: `url(${logo})`}}></div>
+      <div className="flex justify-center items-center lg:w-1/2 bg-contain bg-no-repeat lg:bg-inherit" style={{backgroundImage: `url(${logo})`}}></div>
     
     <Formik
         initialValues={initialValues}

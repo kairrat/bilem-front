@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from 'react';
-import corses from '../assets/images/course-sample.jpg'
 import { useTranslation } from 'react-i18next';
 import Card from './Card';
 import { useDispatch } from 'react-redux';
@@ -43,12 +42,13 @@ const Courses = () => {
       fetchCategory({});
     },[])
 
+  
+
 
     const fetchFreeCourses = (options) => {
       dispatch(getFreeCourses(options))
         .then((data) => {
           setFreeCoursesData(data.payload.data);
-          console.log(freeCoursesData);
         })
         .catch((error) => {
         });
@@ -57,7 +57,6 @@ const Courses = () => {
       dispatch(getFreeCourses(options))
         .then((data) => {
           setPaidCoursesData(data.payload.data);
-          console.log(paidCoursesData);
         })
         .catch((error) => {
         });
@@ -105,7 +104,7 @@ const Courses = () => {
           {
             freeCoursesData ? (
               freeCoursesData.map((course, index) => (
-                <div className="p-4 cursor-pointer" key={index}>
+                <div className="p-4 " key={index}>
                   <Card
                     image={course.wallpaper.url}
                     title={course.title}
@@ -133,7 +132,7 @@ const Courses = () => {
 
 
         <div className='flex justify-center items-center'>
-        <Button className='rounded-xl py-3 px-5 mt-6 ' text={t('watch_all_courses')}/>
+        <Button className='rounded-xl py-3 px-5 mt-6 text-white ' text={t('watch_all_courses')}/>
         </div>
 
         <h2 className="text-2xl font-bold mb-4 ">{t("popular_category")}</h2>
@@ -142,7 +141,8 @@ const Courses = () => {
           {
             category ? (
               limitedCategories.map((category, index) => (
-                <div className={`p-4 cursor-pointer items-center    `}>
+                <div                   key={index}
+                className={`p-4 cursor-pointer items-center    `}>
                   <CategoryCard
                   title={category.name}
                   quantity={category.coursesQuantity}
@@ -193,7 +193,7 @@ const Courses = () => {
           {
             paidCoursesData ? (
               paidCoursesData.map((course, index) => (
-                <div className="p-4 cursor-pointer" key={index}>
+                <div className="p-4 " key={index}>
                   <Card
                     image={course.wallpaper.url}
                     title={course.title}
@@ -219,7 +219,7 @@ const Courses = () => {
           
         </div>
         <div className='flex justify-center items-center'>
-        <Button className='rounded-xl py-3 px-5 mt-6 ' text={t('watch_all_courses')}/>
+        <Button className='rounded-xl py-3 px-5 mt-6 text-white  ' text={t('watch_all_courses')}/>
         </div>
       </section>
     );
